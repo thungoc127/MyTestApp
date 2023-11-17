@@ -1,31 +1,39 @@
-/**
- * My To Do List App
- *
- * @format
- */
-
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  Pressable,
   View,
-  Text,
-  ScrollView,
   TextInput,
-  Button
+  Button,
+  ToastAndroid
 } from 'react-native';
 
 
-function ToDoForm() {
+function ToDoForm({onAddTask}) {
+  const [task, setTask] = useState('');
+  const showToast = () => {
+    ToastAndroid.show('Task is empty!', ToastAndroid.LONG);
+  };
+  const handleSetTask = () => {
+    if (task.trim() !== '') {
+      const result = onAddTask(task);
+      console.log('Result:', result); // You can do something with the result
+      setTask('');
+    }
+    else{
+      showToast
+    }
+    
+  };
   return (
-       
     <View style={styles.form}>
     <TextInput
       style={styles.input}
       placeholder="Add a new task..."
+      value={task}
+      onChangeText={(text) => setTask(text)}
     />
-    <Button title="Add" />
+    <Button title="Add" onPress={handleSetTask} />
   </View>
   );
 }

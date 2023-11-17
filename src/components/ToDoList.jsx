@@ -15,9 +15,7 @@ import {
 
 function ToDoList({tasks}) {
   return (
-
     <ScrollView >
-        
         {tasks.map((item) => (
           <Pressable>
           <View  style={[styles.task, styles.inCompleted,{ marginHorizontal: 10 , marginVertical: 5}]}>
