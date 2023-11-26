@@ -1,11 +1,8 @@
 "use client";
-import { useState } from "react";
-
+import { useState,React } from "react";
 import ToDoForm from '../components/ToDoForm.jsx';
 import ToDoList from '../components/ToDoList.jsx';
-
-
-import React from 'react';
+import MainLayout from "../layouts/MainLayout.jsx";
 import {
   SafeAreaView,
   StyleSheet,
@@ -16,7 +13,6 @@ import {
   TextInput,
   Button
 } from 'react-native';
-import MainLayout from "../layouts/MainLayout.jsx";
 
 function HomeScreen({ navigation }) {
 
@@ -33,18 +29,18 @@ function HomeScreen({ navigation }) {
 
   return (
     <MainLayout>
-      <SafeAreaView>
-        <ToDoList tasks={tasks} />
-        <ToDoForm onAddTask={handleAddTask} />
-        <Button
+      <SafeAreaView >
+      <Button
           title="Go to About"
           onPress={() => navigation.navigate('About')}
         />
+        <ToDoList tasks={tasks} />
+        <ToDoForm onAddTask={handleAddTask} />
+
       </SafeAreaView>
     </MainLayout>
 
   );
 }
-
 
 export default HomeScreen;

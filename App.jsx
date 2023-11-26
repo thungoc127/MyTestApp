@@ -1,12 +1,12 @@
 "use client";
+import React from 'react';
 import { useState } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ToDoForm from './src/components/ToDoForm.jsx';
 import ToDoList from './src/components/ToDoList.jsx';
-
-
-import React from 'react';
+import HomeScreen from "./src/screens/HomeScreen.jsx";
+import AboutScreen from "./src/screens/AboutScreen.jsx";
 import {
   SafeAreaView,
   StyleSheet,
@@ -17,7 +17,6 @@ import {
   TextInput,
   Button
 } from 'react-native';
-import HomeScreen from "./src/screens/HomeScreen.jsx";
 
 
 function App() {
@@ -37,10 +36,11 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        {/* <Stack.Screen name="About" component={} /> */}
+        <Stack.Screen name="About" component={AboutScreen} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
+
 }
 
 
